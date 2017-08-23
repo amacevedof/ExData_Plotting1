@@ -20,9 +20,10 @@ names <- read.table("household_power_consumption.txt", sep = ";", na.strings = "
 names(Electric_power_consumption) <- names(names)
 
 Electric_power_consumption$newdate <- strptime(paste(Electric_power_consumption$Date, Electric_power_consumption$Time), format="%d/%m/%Y%H:%M:%S", tz = "GMT")
+setwd("..")
 
 ## Plot 2
 
-png(file = "Plot1.png")
+png(file = "Plot2.png")
 with(Electric_power_consumption, plot(newdate, Global_active_power, xlab = "", ylab="Global Active Power (kilowatts)", type = "l"))
 dev.off()
