@@ -20,6 +20,7 @@ names <- read.table("household_power_consumption.txt", sep = ";", na.strings = "
 names(Electric_power_consumption) <- names(names)
 
 Electric_power_consumption$newdate <- strptime(paste(Electric_power_consumption$Date, Electric_power_consumption$Time), format="%d/%m/%Y%H:%M:%S", tz = "GMT")
+setwd("..")
 
 ## Plot 4
 
@@ -34,7 +35,7 @@ with(Electric_power_consumption, {
         par(new=TRUE)
         plot(newdate, Sub_metering_3, type = "l", xlab = "", ylab = "", col = "blue", ylim=c(0,38))
         title(ylab = "Energy sub metering")
-        legend("topright", pch = 1, col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+        legend("topright", lty=1, lwd=2, col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
         plot(newdate, Global_Reactive_power, xlab = "datatime", ylab="Global reacctive Power", type = "l")
 })
 
